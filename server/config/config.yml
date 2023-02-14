@@ -1,0 +1,13 @@
+app:
+  name: "task-golang"
+  version: "0.0.1"
+
+http:
+  port: "8000"
+
+logger:
+  log_level: "debug"
+  rollbar_env: "task-golang"
+mongo:
+  url: "mongodb://localhost:27017"
+  name: "taskdb"

@@ -1,0 +1,119 @@
+basePath: /
+definitions:
+  github.com_robertt3kuk_tasks-golang_server_internal_controller_http_v1.RequestUser:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  github.com_robertt3kuk_tasks-golang_server_internal_controller_http_v1.ResultUser:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      salt:
+        type: string
+    type: object
+  internal_controller_http_v1.RequestUser:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  internal_controller_http_v1.ResultUser:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      salt:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact:
+    email: awesome.abaildaev@yandex.kz
+    name: API Support
+    url: https://t.me/biqontie
+  description: This is a sample server to create and get user by email
+  license:
+    name: GPL-3
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+  title: Task Golang
+  version: 0.0.1
+paths:
+  /create-user:
+    post:
+      consumes:
+      - application/json
+      description: create account
+      operationId: create-account
+      parameters:
+      - description: account info
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/github.com_robertt3kuk_tasks-golang_server_internal_controller_http_v1.RequestUser'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+        default:
+          description: ""
+          schema:
+            type: string
+      summary: CreateUser
+  /get-user/{email}:
+    get:
+      description: get user by id
+      operationId: get-user-by-id
+      parameters:
+      - description: Email address of the user
+        in: path
+        name: email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github.com_robertt3kuk_tasks-golang_server_internal_controller_http_v1.ResultUser'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+        default:
+          description: ""
+          schema:
+            type: string
+      summary: Get User By ID
+swagger: "2.0"
