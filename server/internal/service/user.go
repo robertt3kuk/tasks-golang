@@ -111,7 +111,7 @@ func (u *UserService) getSalt() (string, error) {
 		S string `json:"s"`
 	}
 
-	url := "http://localhost:3000/generate-salt"
+	url := "http://172.16.238.12:3000/generate-salt"
 
 	resp, err := http.Get(url)
 	if err != nil {

@@ -14,7 +14,7 @@ import (
 func main() {
 	r := chi.NewRouter()
 
-	r.Use(AllowOnly(NewIPWhitelist("127.0.0.1", "::1")))
+	r.Use(AllowOnly(NewIPWhitelist("127.0.0.1", "::1", "172.16.238.11")))
 	r.Get("/generate-salt", func(w http.ResponseWriter, r *http.Request) {
 		type Salt struct {
 			S string

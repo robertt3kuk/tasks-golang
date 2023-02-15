@@ -9,5 +9,5 @@ logger:
   log_level: "debug"
   rollbar_env: "task-golang"
 mongo:
-  url: "mongodb://localhost:27017"
+  url: "mongodb://172.16.238.10:27017/"
   name: "taskdb"

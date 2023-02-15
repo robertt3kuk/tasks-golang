@@ -10,7 +10,6 @@ import (
 )
 
 func New(url, name string) *mongo.Database {
-
 	client, err := mongo.NewClient(options.Client().ApplyURI(url))
 	if err != nil {
 		log.Fatalf("Error occured while establishing connection to mongoDB")
